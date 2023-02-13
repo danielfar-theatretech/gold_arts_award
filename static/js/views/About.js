@@ -2,6 +2,7 @@ class AboutView extends AbstractView {
 	constructor(params) {
 		super(params);
 		this.setTitle("About Me");
+        this.setHeading("About Me");
 	}
 
 	async getHtml() {

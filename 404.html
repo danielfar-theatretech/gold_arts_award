@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; URL=https://danielfar-theatretech.github.io/">
+    <!-- <meta http-equiv="refresh" content="0; URL=https://danielfar-theatretech.github.io/gold_arts_award/"> -->
     <title>Redirecting to main app</title>
 </head>
 <body>
+
     redirecting to main app...
+
+    <script>
+        const url = new URL(window.location.href)
+        url.pathname = "/";
+        window.location = url
+    </script>  
 </body>
 </html>

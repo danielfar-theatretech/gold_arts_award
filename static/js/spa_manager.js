@@ -1,48 +1,52 @@
-const pathToRegex = (path) => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+function setParam(k, v) {
+	const url = new URL(window.location.href);
+	url.searchParams.set(k, v);
+	window.history.pushState(null, null, url);
+}
 
-const getParams = (match) => {
-	const values = match.result.slice(1);
-	const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map((result) => result[1]);
+function removeParam(k) {
+	const url = new URL(window.location.href);
+	url.searchParams.delete(k);
+	window.history.pushState(null, null, url);
+}
 
-	return Object.fromEntries(
-		keys.map((key, i) => {
-			return [key, values[i]];
-		})
-	);
+const getParams = (url, match) => {
+	if (!match.params || !match.params.length) return {};
+
+	const obj = {};
+	for (const key of match.params) {
+		obj[key] = url.searchParams.get(key);
+	}
+	return obj;
 };
 
-const navigateTo = (url) => {
-	history.pushState(null, null, url);
-	router();
+const navigateTo = (page) => {
+	// add to search params
+	const url = new URL(window.location.href);
+	url.searchParams.set("page", page);
+	window.history.pushState(null, null, url);
+
+	router(url);
 };
 
-const router = async () => {
+const router = async (url) => {
+	if (!url) url = new URL(window.location.href); // get page from current url (when site is refreshed or linked to with a page)
+	
 	const routes = [
-		{ path: "/", view: HomeView },
-		{ path: "/about", view: AboutView },
-		{ path: "/Projects", view: ProjectsView },
-		{ path: "/Projects/:id", view: ProjectView }
-		// { path: "/settings", view: Settings }
+		{ path: "home", view: HomeView },
+		{ path: "about", view: AboutView },
+		{ path: "unit1", params: ["u1part"], view: Unit1 }
+		// { path: "projects", params: ["id"], view: ProjectView }
 	];
 
-	// Test each route for potential match
-	const potentialMatches = routes.map((route) => {
-		return {
-			route: route,
-			result: location.pathname.match(pathToRegex(route.path))
-		};
-	});
-
-	let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
+	let match = routes.find((potentialMatch) => potentialMatch.path == url.searchParams.get("page"));
+	console.log(match);
 
 	if (!match) {
-		match = {
-			route: routes[0],
-			result: [location.pathname]
-		};
+		match = routes[0]; // default to home page if nothing can be found
 	}
 
-	const view = new match.route.view(getParams(match));
+	const view = new match.view(getParams(url, match));
 
 	document.querySelector("#app").innerHTML = await view.getHtml();
 };
@@ -51,9 +55,17 @@ window.addEventListener("popstate", router);
 
 document.addEventListener("DOMContentLoaded", () => {
 	document.body.addEventListener("click", (e) => {
+		console.log(e);
+		if (e.target.matches("[data-params]")) {
+			e.preventDefault();
+			JSON.parse(e.target.dataset.params).forEach((p) => {
+				setParam(p[0], p[1]);
+			})
+		}
+		
 		if (e.target.matches("[data-link]")) {
 			e.preventDefault();
-			navigateTo(e.target.href);
+			navigateTo(e.target.dataset.link);
 		}
 	});
 

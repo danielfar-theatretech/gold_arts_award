@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Gold Arts Award</title>
 
-    <meta name="title" content="Portfolio">
-    <meta name="name" content="Portfolio">
-    <meta name="description" content="Portfolio">
+    <meta name="title" content="Gold Arts Award">
+    <meta name="name" content="Gold Arts Award">
+    <meta name="description" content="Gold Arts Award">
     <meta name="theme-color" content="#AA8AFB">
-    <meta name="keywords" content="light, sound, theatre, production, portfolio">
-    <meta name="author" content="Portfolio Development Team">
+    <meta name="keywords" content="light, sound, theatre, production, Gold Arts Award">
+    <meta name="author" content="Daniel Farquharson">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="INSERT URL HERE">
-    <meta property="og:title" content="Portfolio">
-    <meta property="og:description" content="Portfolio">
+    <meta property="og:title" content="Gold Arts Award">
+    <meta property="og:description" content="Gold Arts Award">
     <meta property="og:image" content="./static/images/etc_gio_large.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="INSERT URL HERE">
-    <meta property="twitter:title" content="Portfolio">
-    <meta property="twitter:description" content="Portfolio">
+    <meta property="twitter:title" content="Gold Arts Award">
+    <meta property="twitter:description" content="Gold Arts Award">
     <meta property="twitter:image" content="./static/images/etc_gio_large.jpg">
 
 
@@ -44,8 +44,9 @@
     <script src="./static/js/views/AbstractView.js"></script>
     <script src="./static/js/views/Home.js"></script>
     <script src="./static/js/views/About.js"></script>
-    <script src="./static/js/views/Projects.js"></script>
+    <script src="./static/js/views/Unit1.js"></script>
     <script src="./static/js/views/Project.js"></script>
+
     <script src="./static/js/spa_manager.js" defer></script>
 </head>
 
@@ -54,37 +55,34 @@
         <div class="header">
             <div class="menu">
                 <div class="hamburger">
-                    <i class="fas fa-bars"></i>
+                    <!-- <i class="fas fa-bars"></i> -->
+                    <img src="./static/images/moving_head_spot.png" alt="Moving Head Fixture Icon">
                 </div>
             </div>
-            <div class="logo">Portfolio</div>
+            <div id="main-header"></div> <div id="sub-header"></div>
+            <!-- Daniel Farquharson Gold Arts Award -->
         </div>
 
         <div class="sidebar">
             <div class="sidebar_inner">
                 <ul>
                     <li>
-                        <a class="sidebar-link" href="/" data-link>
+                        <a class="sidebar-link" data-link="home">
                             <span class="icon"><i class="fa fa-eye"></i></span>
                             <span class="text">Overview</span>
                         </a>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="/about" data-link>
+                        <a class="sidebar-link" data-link="about">
                             <span class="icon"><i class="fa fa-question-circle"></i></span>
                             <span class="text">About Me</span>
                         </a>
                     </li>
                     <li>
-                        <a class="sidebar-link" href="#">
-                            <span class="icon"><i class="fa fa-book"></i></span>
-                            <span class="text">Projects</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="sidebar-link" href="#">
-                            <span class="icon"><i class="fa fa-id-card"></i></span>
-                            <span class="text">Contact</span>
+                        <a class="sidebar-link" data-params='[["u1part", "0"]]' data-link="unit1">
+                            <!-- onclick="navigateUnit1List() -->
+                            <span class="icon"><i class="fa fa-question-circle"></i></span>
+                            <span class="text">Unit 1</span>
                         </a>
                     </li>
                 </ul>

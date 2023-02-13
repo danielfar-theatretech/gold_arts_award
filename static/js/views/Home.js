@@ -1,22 +1,18 @@
 class HomeView extends AbstractView {
 	constructor(params) {
 		super(params);
-		this.setTitle("Portfolio");
+		this.setTitle("Home");
+        this.setHeading("Home");
 	}
 
 	async getHtml() {
 		return `
         <section class="main-padded">
-        <p class="header-1">Header 1</p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sapiente autem nesciunt recusandae.
-            Reiciendis aperiam, corrupti distinctio dolor amet, mollitia omnis aliquam recusandae illo soluta
-            inventore
-            atque velit et expedita nisi nam aut. Sit libero dignissimos adipisci. Nam earum, asperiores quaerat
-            harum
-            incidunt ab eum aperiam minus reprehenderit architecto praesentium.
-        </p>
-    </section>
+            <p class="header-1">Gold Arts Award</p>
+            <p>
+                This is some text explaining what the Gold Arts Award is and what I hope to get out of it
+            </p>
+        </section>
 
     <hr>
 

@@ -1,5 +1,5 @@
 {
-    "name": "portfolio",
+    "name": "gold_arts",
     "version": "1.0.0",
     "description": "",
     "main": "src/index.html",
@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/lordfarquhar/danielfar-theatretech.github.io.git"
+        "url": "git+https://github.com/lordfarquhar/gold_arts_award.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/lordfarquhar/danielfar-theatretech.github.io/issues"
+        "url": "https://github.com/lordfarquhar/gold_arts_award/issues"
     },
-    "homepage": "https://github.com/lordfarquhar/danielfar-theatretech.github.io#readme",
+    "homepage": "https://danielfar-theatretech.github.io/gold_arts_award/",
     "devDependencies": {
         "sass": "^1.48.0"
     }

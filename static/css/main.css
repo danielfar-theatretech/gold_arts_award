@@ -122,9 +122,17 @@ body {
   align-items: center;
   z-index: 99;
 }
-.header .logo {
+.header #main-header {
   font-size: 25px;
   font-weight: 700;
+  padding: 0 25px;
+  color: #f5f5f5;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.header #sub-header {
+  font-size: 20px;
+  font-weight: 600;
   padding: 0 25px;
   color: #f5f5f5;
   letter-spacing: 2px;
@@ -136,10 +144,13 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.header .hamburger {
+.header .hamburger i {
   font-size: 25px;
   cursor: pointer;
   color: #f5f5f5;
+}
+.header .hamburger img {
+  height: calc(4em - 10px);
 }
 .header .hamburger:hover {
   color: #007dc3;
@@ -156,7 +167,7 @@ body {
   position: fixed;
   top: 4em;
   left: 0;
-  width: 58%;
+  width: 48%;
   height: 100%;
   background: #042331;
   z-index: 99;
@@ -165,6 +176,7 @@ body {
   display: block;
   padding: 16px 25px;
   border-bottom: 1px solid #03374e;
+  cursor: pointer;
 }
 .sidebar .sidebar-link:hover {
   background: #007dc3;
@@ -174,16 +186,22 @@ body {
   color: rgba(245, 245, 245, 0.9607843137);
 }
 .sidebar .sidebar-link .icon {
+  cursor: pointer;
   font-size: 18px;
   color: #f5f5f5;
   vertical-align: middle;
 }
 .sidebar .sidebar-link .text {
+  cursor: pointer;
   margin-left: 19px;
   color: #f5f5f5;
   font-family: sans-serif;
   font-size: 18px;
   letter-spacing: 2px;
+}
+
+[data-link] {
+  cursor: pointer;
 }
 
 #main {
@@ -237,17 +255,17 @@ section {
 }
 
 .header-1 {
-  font-size: 10vw;
+  font-size: 8vw;
   font-weight: 800;
 }
 
 .header-2 {
-  font-size: 9vw;
+  font-size: 7vw;
   font-weight: 800;
 }
 
 .header-3 {
-  font-size: 8vw;
+  font-size: 6vw;
   font-weight: 800;
 }
 
